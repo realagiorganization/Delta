@@ -1,0 +1,32 @@
+name: BDD Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  bdd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Run BDD validation
+        run: python scripts/run_bdd.py
+      - name: Record VHS
+        if: github.ref == 'refs/heads/main'
+        uses: charmbracelet/vhs-action@v2
+        with:
+          path: Docs/bdd/bdd-run.tape
+      - name: Upload VHS gif
+        if: github.ref == 'refs/heads/main'
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdd-run-gif
+          path: Docs/bdd/bdd-run.gif
