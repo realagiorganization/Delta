@@ -1,14 +1,14 @@
 Prompt ID: prompts_ios_app_delta-p00002-c041fc
-Timestamp: 2026-03-01T18:17:11.931919+00:00
+Timestamp: 2026-03-01T19:17:52.631117+00:00
 Source: discord
-Queue: guild-1353735964635435100-run-22549043813::prompt_queue::discord_1353735964635435100_1353735964635435100_1462822200087154951_realagicorp_iosapp_prompts_ios_app_delta_1462822200087154951_json
+Queue: guild-1353735964635435100-run-22550018723::prompt_queue::discord_1353735964635435100_1353735964635435100_1462822200087154951_realagicorp_iosapp_prompts_ios_app_delta_1462822200087154951_json
 Run: 1/1
 Content:
 Discord channel: prompts_ios_app_delta
 Channel ID: 1462822200087154951
 Queue label: prompts_ios_app_delta
 Messages aggregated: 5
-Available repository: realagiorganization/Delta -> /tmp/repositories/realagiorganization_Delta
+Available repository: realagiorganization/Delta -> /tmp/repositories/realagiorganization--Delta
 
 Discord channel: prompts_ios_app_delta | ID: 1462822200087154951 | Reaction filter: :white_check_mark:
 
