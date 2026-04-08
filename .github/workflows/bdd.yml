@@ -7,6 +7,13 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: bdd-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   bdd:
     runs-on: ubuntu-latest
@@ -16,17 +23,25 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
       - name: Run BDD validation
-        run: python scripts/run_bdd.py
+        run: |
+          mkdir -p build
+          python scripts/run_bdd.py \
+            --markdown-summary build/bdd-summary.md \
+            --json-summary build/bdd-summary.json
+          cat build/bdd-summary.md >> "$GITHUB_STEP_SUMMARY"
       - name: Record VHS
-        if: github.ref == 'refs/heads/main'
+        if: github.event_name != 'pull_request'
         uses: charmbracelet/vhs-action@v2
         with:
           path: Docs/bdd/bdd-run.tape
-      - name: Upload VHS gif
-        if: github.ref == 'refs/heads/main'
+      - name: Upload BDD artifacts
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: bdd-run-gif
-          path: Docs/bdd/bdd-run.gif
+          name: bdd-artifacts
+          path: |
+            build/bdd-summary.md
+            build/bdd-summary.json
+            Docs/bdd/bdd-run.gif

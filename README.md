@@ -11,6 +11,18 @@
 
 Delta is an iOS application that allows you to emulate and play video games for several classic video game systems, including Game Boy Advance, Nintendo 64, and Nintendo DS. Delta is the spiritual successor to [GBA4iOS](http://www.gba4iosapp.com) — a Game Boy Advance emulator for iOS devices [Paul Thorsen](https://twitter.com/pau1thor) and I made while in high school together — rebuilt from the ground up with modern iOS features and support for more systems.
 
+## Automation
+- `iOS CI` builds the app for a generic iOS Simulator target on pushes, pull requests, and manual dispatches.
+- `BDD Suite` validates the principal user journeys in `Tests/BDD`, publishes a job summary, and regenerates the terminal capture from `Docs/bdd/bdd-run.tape`.
+- `iOS TestFlight` archives a Release build and uploads it to TestFlight on published GitHub releases or manual dispatches.
+
+## Developer Docs
+- [Usage Guide](docs/USAGE.md)
+- [Environment Variables](docs/ENVS.md)
+- [Development Plan](docs/DEVPLAN.md)
+- [Assumptions](docs/ASSUMPTIONS.md)
+- [Working Agent Prompts](docs/AGENTS.md)
+
 <p align="center">
   <img src="https://user-images.githubusercontent.com/705880/115471008-203aa480-a1ec-11eb-8aba-237a46799543.png" width=75%><br/>
   <em>Mario and Pokémon are properties of Nintendo Co., Ltd. and are not associated with Delta or AltStore LLC.</em>
@@ -140,9 +152,9 @@ Each system in Delta is implemented as its own "Delta Core", which serves as a s
 - [GPGXDeltaCore](https://github.com/rileytestut/GPGXDeltaCore)
 
 ## Minimum Project Requirements
-- Xcode 15
+- Xcode 15.4+
 - Swift 5.9
-- iOS 14.0
+- iOS 16.6 deployment target for the main `Delta` app target
 
 ## Compilation Instructions
 
@@ -159,13 +171,15 @@ $ cd Delta
 $ git submodule update --init --recursive
 ```  
 
+Detailed developer setup, BDD usage, and release instructions are documented in [docs/USAGE.md](docs/USAGE.md).
+
 3. Open `Systems/Systems.xcworkspace` and select the "Systems" project in the project navigator (a.k.a. the left sidebar).
 4. Select "Systems" under `Targets`, then click the `Signing & Capabilities` tab.
 5. Change `Team` from "Yvette Testut" to your own account.
 6. Close `Systems/Systems.xcworkspace`, then open `Delta.xcworkspace`.
-6. Repeat steps 4 & 5 with the "Delta" target.
-7. Change Delta's `Bundle Identifier` to something unique, such as by appending your GitHub username (ex: `com.rileytestut.Delta.MyGitHubUsername`).
-8. Build + run app! 🎉
+7. Repeat steps 4 & 5 with the "Delta" target.
+8. Change Delta's `Bundle Identifier` to something unique, such as by appending your GitHub username (ex: `com.rileytestut.Delta.MyGitHubUsername`).
+9. Build + run app! 🎉
 
 ## Licensing
 The Delta codebase is distributed under the **AGPLv3 license**.
