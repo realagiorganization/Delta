@@ -1,0 +1,2 @@
+app_identifier(ENV["APP_IDENTIFIER"] || "com.rileytestut.Delta")
+team_id(ENV["APPLE_TEAM_ID"] || "6XVY5G3U44")

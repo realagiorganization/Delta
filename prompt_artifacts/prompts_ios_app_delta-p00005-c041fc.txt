@@ -1,0 +1,18 @@
+Prompt ID: prompts_ios_app_delta-p00005-c041fc\nTimestamp: 2026-01-29T12:07:05.189140Z\nSource: discord\nQueue: 1810be93b1db46a2930d8bab4c33d4f4::prompt_queue::discord_1353735964635435100_1353735964635435100_1462822200087154951_realagicorp_iosapp_prompts_ios_app_delta_1462822200087154951_json\nRun: 1/1\nContent:\nDiscord channel: prompts_ios_app_delta\nChannel ID: 1462822200087154951\nQueue label: prompts_ios_app_delta\nMessages aggregated: 5\nAttachments saved for execution (5): attachments/Screenshot_20260121_161257_Chrome-8346a.jpg, attachments/Screenshot_20260121_161300_Chrome-f79cc.jpg, attachments/Screenshot_20260121_161306_Chrome-1bb19.jpg, ... | mounted at .prompt_attachments/prompts_ios_app_delta-p00005-c041fc\nAttachment locations:\n- Screenshot_20260121_161257_Chrome-8346a.jpg (206344 bytes) -> .prompt_attachments/prompts_ios_app_delta-p00005-c041fc/Screenshot_20260121_161257_Chrome-8346a.jpg\n- Screenshot_20260121_161300_Chrome-f79cc.jpg (176115 bytes) -> .prompt_attachments/prompts_ios_app_delta-p00005-c041fc/Screenshot_20260121_161300_Chrome-f79cc.jpg\n- Screenshot_20260121_161306_Chrome-1bb19.jpg (193224 bytes) -> .prompt_attachments/prompts_ios_app_delta-p00005-c041fc/Screenshot_20260121_161306_Chrome-1bb19.jpg\n- Screenshot_20260121_161313_Chrome-5b606.jpg (221068 bytes) -> .prompt_attachments/prompts_ios_app_delta-p00005-c041fc/Screenshot_20260121_161313_Chrome-5b606.jpg\n- Screenshot_20260121_161316_Chrome-6cef2.jpg (162503 bytes) -> .prompt_attachments/prompts_ios_app_delta-p00005-c041fc/Screenshot_20260121_161316_Chrome-6cef2.jpg\n\nDiscord channel: prompts_ios_app_delta | ID: 1462822200087154951 | Reaction filter: :white_check_mark:
+
+Messages with required reaction:
+[1] (2026-01-19T14:54:06.015+00:00 | realagiadmin_29264 | id=1462822433257033758) Work in 
+ https://github.com/realagiorganization/Delta as main repo
+
+First prompt is 
+
+“Develop GitHub actions that build test and deploy release version of app to TestFlight, add GitHub actions badges”
+[2] (2026-01-21T21:13:37.469+00:00 | realagiadmin_29264 | id=1463642719388831822) Test/screenshot GitHub Pages website
+Attachments: Screenshot_20260121_161257_Chrome.jpg: /out/1353735964635435100/_media/Screenshot_20260121_161257_Chrome-8346a.jpg ; Screenshot_20260121_161300_Chrome.jpg: /out/1353735964635435100/_media/Screenshot_20260121_161300_Chrome-f79cc.jpg ; Screenshot_20260121_161306_Chrome.jpg: /out/1353735964635435100/_media/Screenshot_20260121_161306_Chrome-1bb19.jpg ; Screenshot_20260121_161313_Chrome.jpg: /out/1353735964635435100/_media/Screenshot_20260121_161313_Chrome-5b606.jpg ; Screenshot_20260121_161316_Chrome.jpg: /out/1353735964635435100/_media/Screenshot_20260121_161316_Chrome-6cef2.jpg
+[3] (2026-01-22T08:24:38.388+00:00 | mermaid10121 | id=1463811585922568253) Add badges for each GitHub action to README and gif of ui testing
+[4] (2026-01-25T20:21:00.305+00:00 | realagiadmin_29264 | id=1465079028745765040) Create DEVPLAN.md outlining steps for developing this project, mention there all external dependencies that leverage parts of functionality needed
+
+Create BDD test suite describing principal use cases
+
+Create GitHub actions launching BDD suite and add its badge to README. If behavior includes either console or UI / Web user interaction, record it with vhs action and post gif into README
+[5] (2026-01-27T21:26:19.834+00:00 | drybox | id=1465820244173000825) always_on_hint\n

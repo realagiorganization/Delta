@@ -1,0 +1,47 @@
+name: BDD Suite
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bdd-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  bdd:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run BDD validation
+        run: |
+          mkdir -p build
+          python scripts/run_bdd.py \
+            --markdown-summary build/bdd-summary.md \
+            --json-summary build/bdd-summary.json
+          cat build/bdd-summary.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Record VHS
+        if: github.event_name != 'pull_request'
+        uses: charmbracelet/vhs-action@v2
+        with:
+          path: Docs/bdd/bdd-run.tape
+      - name: Upload BDD artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bdd-artifacts
+          path: |
+            build/bdd-summary.md
+            build/bdd-summary.json
+            Docs/bdd/bdd-run.gif
